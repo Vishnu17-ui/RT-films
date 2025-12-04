@@ -12,516 +12,66 @@
     <link href="https://fonts.googleapis.com/css2?family=Joti+One&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
     <link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@300&display=swap" rel="stylesheet"> 
     <title>collections</title>
-    <!-- <style>
-        body{
-            block-size: cover;
-            background-color: black;
-            overflow: hidden;
-            
-        }
-        .container{
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%,-50%);
-            width: 1700px;
-            height: 882px;
-            padding: 50px;
-            background-color: aliceblue;
-            box-shadow: 0 30px 50px #dbdbdb;
-        }
-        #slide{
-            width: max-content;
-            /* margin-top: 50px; */
-        }
-
-        /*COLLECTIONS SECTION - Perfect Center Alignment */
-        .item{
-            width: 200px;
-            height: 240px;
-            background-position: 50% 50%;
-            display: inline-block;
-            transition: 0.5s;
-            background-size: cover;
-            position: absolute;
-            z-index: 1;
-            top: 50%;
-            transform: translate(60%,100%);
-            border-radius: 20px;
-            box-shadow: 0 30px 30px rgba(125, 122, 122, 0.449);
-        }
-        .item:nth-child(1), .item:nth-child(2){
-            left: 0;
-            top: 0;
-            transform: translate(0,0);
-            border-radius: 0;
-            width: 100%;
-            height: 100%;
-            box-shadow: none;
-        }
-
-        .item:nth-child(3){
-            left: 50%;
-            
-        }
-        .item:nth-child(4){
-            left:calc(50% + 220px);
-
-        }
-        .item:nth-child(5){
-            left:calc(50% + 440px);
-
-        }
-        .item:nth-child(6){
-            left:calc(50% + 660px);
-            opacity: 0;
-
-        }
-        .item:nth-child(n+7){
-            left:calc(50% + 880px);
-            opacity: 0;
-
-        }
-        .item .content{
-            position: absolute;
-            top: 30%;
-            left: 70px;
-            width: 300px;
-            text-align: left;
-            padding: 0;
-            color: rgb(18, 19, 19);
-            transform: translate(0,-50%);
-            display: none;
-        }
-        .item:nth-child(2) .content{
-            display: block;
-            z-index: 11111;
-        }
-        .item .name{
-            font-size: 40px;
-            font-weight: bold;
-            opacity: 0;
-            animation: showcontent 1s ease-in-out 1 forwards;
-        }
-        .item .coll{
-            margin: 20px 0;
-            opacity: 0;
-            animation: showcontent 1s ease-in-out 1 forwards;
-        }
-        .item button{
-            padding: 10px 20px;
-            border: none;
-            opacity: 0;
-            animation: showcontent 1s ease-in-out 1 forwards;
-        }
-
-        @keyframes showcontent{
-            from{
-                opacity: 0;
-                transform: translate(0,100px);
-                filter: blur(33px);
-            }to{
-                opacity: 1;
-                transform: translate(0,100px);
-                filter: blur(0);
-            }
-        }
-        /* SLIDE BUTTONS/ */
-
-        .buttons{
-            position: absolute;
-            bottom: 30px;
-            z-index: 2222;
-            text-align: center;
-            width: 100%;
-        }
-        .buttons button{
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            border: 1px solid #6c6363;
-            transition: 0.5s;
-        }
-        
-        .buttons button:hover{
-            background-color: #6c6363;
-        }
-
-        /* RESPONSIVE DESIGN */
-        /* RESPONSIVE BREAKPOINTS */
-        @media (max-width: 992px) {
-            .container { height: 75vh; }
-            .item { width: 200px; height: 280px; }
-        }
-
-        @media (max-width: 768px) {
-            .container { height: 70vh; border-radius: 20px; }
-            /* .content { left: 6%; } */
-            .name { font-size: 42px; }
-        }
-
-        @media (max-width: 576px) {
-            .container {
-                width: 98%;
-                height: 80vh;
-                border-radius: 18px;
-            }
-            .content {
-                left: 50%;
-                transform: translate(-50%, -50%);
-                text-align: center;
-                width: 90%;
-            }
-            .buttons { bottom: 8%; }
-        }
-
-        @media (max-width: 400px) {
-            .buttons button {
-                width: 60px;
-                height: 60px;
-            }
-            .item{
-                 margin-bottom: 10px;   
-                }
-
-                
-        }
-    </style> -->
-    <style>
-    /* Reset and base styles */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-section {
-    width: 100%;
-    padding: 60px 0;
-    background: #000;
-    overflow: hidden;
-}
-
-.container {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-/* Slider container */
-#slide {
-    position: relative;
-    width: 100%;
-    height: 90vh;
-    min-height: 500px;
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-}
-
-/* Individual slides */
-#slide .item {
-    position: absolute;
-    inset: 0;
-    opacity: 0;
-    transition: opacity 0.8s ease-in-out;
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-}
-
-/* Active slide */
-#slide .item.active {
-    opacity: 1;
-    z-index: 1;
-}
-
-/* Navigation buttons */
-#slide .buttons {
-    position: absolute;
-    top: 50%;
-    left: 0;
-    right: 0;
-    transform: translateY(-50%);
-    display: flex;
-    justify-content: space-between;
-    padding: 0 30px;
-    z-index: 10;
-    pointer-events: none;
-}
-
-#slide .buttons button {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.25);
-    border: 2px solid rgba(255, 255, 255, 0.4);
-    color: white;
-    font-size: 28px;
-    cursor: pointer;
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    transition: all 0.3s ease;
-    pointer-events: all;
-}
-
-#slide .buttons button:hover {
-    background: rgba(255, 255, 255, 0.4);
-    border-color: white;
-    transform: scale(1.1);
-}
-
-/* Optional: Dots indicator at the bottom */
-#slide::after {
-    content: '';
-    position: absolute;
-    bottom: 25px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    gap: 12px;
-    z-index: 10;
-}
-
-#slide::after > div {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.4);
-    transition: all 0.4s;
-}
-
-#slide::after > div.active {
-    background: white;
-    transform: scale(1.4);
-}
-
-/* Footer Styles */
-    .wedding-footer {
-      background-color: #0f0f0f;
-      color: #e5e5e5;
-      padding: 60px 20px 20px;
-      /* margin-top: 50px; */
-    }
-
-    .footer-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 2fr 1fr;
-      gap: 50px;
-      align-items: start;
-    }
-
-    /* Brand & Description */
-    .footer-head h3 {
-      font-size: 28px;
-      color: #e4d5b7;
-      margin-bottom: 15px;
-      font-family: 'Cabinet Grotesk', sans-serif;
-      letter-spacing: 1px;
-    }
-
-    .footer-head p {
-      font-size: 15px;
-      color: #bbbbbb;
-      max-width: 400px;
-      line-height: 1.8;
-      font-family: 'Cabinet Grotesk', sans-serif;
-    }
-
-    /* Services Column */
-    .footer-col h3 {
-      font-size: 20px;
-      color: #e4d5b7;
-      margin-bottom: 20px;
-      position: relative;
-      padding-bottom: 10px;
-      font-family: 'Cabinet Grotesk', sans-serif;
-    }
-
-    .footer-col h3::after {
-      content: '';
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      width: 40px;
-      height: 2px;
-      background-color: #d4a373;
-    }
-
-    .footer-col ul {
-      list-style: none;
-    }
-
-    .footer-col ul li {
-      margin-bottom: 12px;
-    }
-
-    .footer-col ul li a {
-      color: #cccccc;
-      text-decoration: none;
-      font-size: 15px;
-      transition: all 0.3s ease;
-      position: relative;
-      font-family: 'Cabinet Grotesk', sans-serif;
-    }
-
-    .footer-col ul li a:hover {
-      color: #d4a373;
-      padding-left: 8px;
-    }
-
-    .footer-col ul li a::before {
-      content: '→';
-      opacity: 0;
-      margin-right: 0;
-      transition: all 0.3s ease;
-    }
-
-    .footer-col ul li a:hover::before {
-      opacity: 1;
-      margin-right: 8px;
-    }
-
-    /* Footer Bottom */
-    .footer-bottom {
-      grid-column: 1 / -1;
-      text-align: center;
-      padding-top: 40px;
-      margin-top: 30px;
-      border-top: 1px solid #333;
-      font-size: 14px;
-      color: #888;
-      font-family: 'Cabinet Grotesk', sans-serif;
-    }
-
-    .footer-bottom i {
-      color: #d4a373;
-      margin: 0 5px;
-      animation: pulse 2s infinite;
-    }
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    #slide {
-        height: 60vh;
-        border-radius: 15px;
-    }
-    
-    #slide .buttons button {
-        width: 50px;
-        height: 50px;
-        font-size: 22px;
-    }
-    
-    #slide .buttons {
-        padding: 0 15px;
-    }
-
-     .footer-container {
-        grid-template-columns: 1fr;
-        gap: 40px;
-        text-align: center;
-         }
-        .footer-head p {
-        max-width: 100%;
-        margin: 0 auto;
-                        }
-
-        .footer-col h3::after {
-        left: 50%;
-        transform: translateX(-50%);
-                            }
-
-        .footer-col ul li a:hover {
-        padding-left: 0;
-                        }
-
-        .footer-col ul li a:hover::before {
-        display: none;
-                        }
-        }      
-
-@media (max-width: 480px) {
-    #slide {
-        height: 50vh;
-        border-radius: 10px;
-    }
-    
-    section {
-        padding: 40px 0;
-    }
-
-    .wedding-footer {
-                        padding: 50px 15px 20px;
-                        }
-
-        .footer-head h3 {
-                        font-size: 24px;
-                        }
-
-        .footer-bottom {
-                        font-size: 13px;
-                        line-height: 1.6;
-                        }
-        }
-
-
-
-  </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- PHOTO COLLECTIONS SECTION -->
-     <section>
-        <div class="container">
-            <div id="slide">
-                <div class="item" style="background-image: url(assets/1.png) ;">
-                    <!-- <div class="content">
-                        <div class="name">RT films</div>
-                        <div class="coll">Catpurting the rare things</div>
-                        <button>See more</button>
-                    </div> -->
-                </div>
-
-                <div class="item" style="background-image: url(assets/2.png) ;">
-                    <!-- <div class="content">
-                        <div class="name">RT films</div>
-                        <div class="coll">Catpurting the rare things</div>
-                        <button>See more</button>
-                    </div> -->
-                </div>
-                <div class="item" style="background-image: url(assets/3.png) ;">
-                    
-                </div>
-                <div class="item" style="background-image: url(assets/4.png) ;">
-                    
-                </div>
-                <div class="item" style="background-image: url(assets/5.png) ;">
-                    
-                </div>
-                <div class="item" style="background-image: url(assets/6.png) ;">
-                    
-                </div>
-                <div class="item" style="background-image: url(assets/7.png) ;">
-            
-                </div>
-                <div class="item" style="background-image: url(assets/8.png) ;">
-                    <!-- <div class="content">
-                        <div class="name">RT films</div>
-                        <div class="coll">Catpurting the rare things</div>
-                        <button>See more</button>
-                    </div> -->
-                </div>
-                <div class="buttons">
-                    <button id="prev"><i class="fa-solid fa-angle-left"></i></button>
-                    <button id="next"><i class="fa-solid fa-angle-right"></i></button>
-                </div>
-            </div>
+  <!-- NAV SECTION -->
+    <nav>
+        <div class="logo">
+            <i class="fa-jelly-duo fa-regular fa-font-case">RT Films</i>
         </div>
-     </section>
+        <!-- <a href="#" class="logo">RT Films</a> -->
 
-     <footer class="wedding-footer">
+        <!-- Hamburger -->
+        <input type="checkbox" id="menu-toggle">
+        <label for="menu-toggle" class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </label>
+
+        <!-- Menu -->
+        <div class="menu">
+            <ul>
+                <li><a class="active" href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="service.html">Services</a></li>
+            </ul>
+        </div>
+    </nav> 
+
+    <!-- PHOTO COLLECTIONS SECTION -->
+    <section>
+      <div class="container">
+    <h1>OUR COLLECTIONS</h1>
+    
+    <div class="gallery">
+        <div class="gallery-item" style="background-image: url(assets/1.png);" data-index="0"></div>
+        <div class="gallery-item" style="background-image: url(assets/2.png);" data-index="1"></div>
+        <div class="gallery-item" style="background-image: url(assets/3.png);" data-index="2"></div>
+        <div class="gallery-item" style="background-image: url(assets/5.png);" data-index="3"></div>
+        <div class="gallery-item" style="background-image: url(assets/4.png);" data-index="4"></div>
+        <div class="gallery-item" style="background-image: url(assets/7.png);" data-index="5"></div>
+        <div class="gallery-item" style="background-image: url(assets/6.png);" data-index="6"></div>
+        <div class="gallery-item" style="background-image: url(assets/4.png);" data-index="4"></div>
+        <div class="gallery-item" style="background-image: url(assets/7.png);" data-index="5"></div>
+        <div class="gallery-item" style="background-image: url(assets/6.png);" data-index="6"></div>
+    </div>
+</div>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox">
+    <span class="close">×</span>
+    <div class="nav-arrow prev">❮</div>
+    <div class="nav-arrow next">❯</div>
+    <img class="lightbox-img" id="lightboxImg" src="" alt="Lightbox">
+    <div class="dots" id="dots"></div>
+</div>
+    </section>
+
+    <!-- FOOTER SECTION -->
+    <footer class="wedding-footer">
     <div class="footer-container">
       <!-- Column 1: Brand & Description -->
       <div class="footer-head">
@@ -546,7 +96,8 @@ section {
     <div class="footer-bottom">
       &copy; 2025 RT Films. All rights reserved. Made with <i class="fas fa-heart"></i> for timeless love.
     </div>
-  </footer>
-     <script src="script.js"></script>
+    </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>

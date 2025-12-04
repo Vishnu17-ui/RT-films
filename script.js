@@ -1,43 +1,73 @@
-
-    const slides = document.querySelectorAll('#slide .item');
-    const prevBtn = document.getElementById('prev');
-    const nextBtn = document.getElementById('next');
-    let current = 0;
-    const totalSlides = slides.length;
+const items = document.querySelectorAll('.gallery-item');
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightboxImg');
+    const closeBtn = document.querySelector('.close');
+    const prevBtn = document.querySelector('.prev');
+    const nextBtn = document.querySelector('.next');
+    const dotsContainer = document.getElementById('dots');
+    
+    let currentIndex = 0;
+    const totalImages = items.length;
 
     // Create dots
-    const dotsContainer = document.createElement('div');
-    for (let i = 0; i < totalSlides; i++) {
+    items.forEach((_, i) => {
         const dot = document.createElement('div');
         dot.classList.add('dot');
         if (i === 0) dot.classList.add('active');
+        dot.addEventListener('click', () => goToImage(i));
         dotsContainer.appendChild(dot);
-    }
-    document.querySelector('#slide').appendChild(dotsContainer);
+    });
 
     const dots = document.querySelectorAll('.dot');
 
-    function showSlide(n) {
-        slides[current].classList.remove('active');
-        dots[current].classList.remove('active');
+    function showImage(index) {
+        currentIndex = (index + totalImages) % totalImages;
+        const imgUrl = items[currentIndex].style.backgroundImage.slice(5, -2);
+        lightboxImg.src = imgUrl;
         
-        current = (n + totalSlides) % totalSlides;
-        
-        slides[current].classList.add('active');
-        dots[current].classList.add('active');
+        // Update active dot
+        dots.forEach((dot, i) => {
+            dot.classList.toggle('active', i === currentIndex);
+        });
     }
 
-    prevBtn.addEventListener('click', () => showSlide(current - 1));
-    nextBtn.addEventListener('click', () => showSlide(current + 1));
+    function goToImage(index) {
+        showImage(index);
+        lightbox.classList.add('active');
+    }
 
-    // Auto-play
-    let autoPlay = setInterval(() => showSlide(current + 1), 5000);
-
-    // Pause on hover
-    document.querySelector('#slide').addEventListener('mouseenter', () => clearInterval(autoPlay));
-    document.querySelector('#slide').addEventListener('mouseleave', () => {
-        autoPlay = setInterval(() => showSlide(current + 1), 5000);
+    // Open lightbox
+    items.forEach((item, i) => {
+        item.addEventListener('click', () => goToImage(i));
     });
 
-    // Start with first slide active
-    slides[0].classList.add('active');
+    // Navigation
+    prevBtn.addEventListener('click', () => showImage(currentIndex - 1));
+    nextBtn.addEventListener('click', () => showImage(currentIndex + 1));
+
+    // Close
+    closeBtn.addEventListener('click', () => lightbox.classList.remove('active'));
+    lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox || e.target === lightboxImg) {
+            lightbox.classList.remove('active');
+        }
+    });
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+        if (!lightbox.classList.contains('active')) return;
+        if (e.key === 'ArrowLeft') showImage(currentIndex - 1);
+        if (e.key === 'ArrowRight') showImage(currentIndex + 1);
+        if (e.key === 'Escape') lightbox.classList.remove('active');
+    });
+
+    // Touch swipe for mobile
+    let touchStartX = 0;
+    lightboxImg.addEventListener('touchstart', e => touchStartX = e.touches[0].clientX);
+    lightboxImg.addEventListener('touchend', e => {
+        const touchEndX = e.changedTouches[0].clientX;
+        const diff = touchStartX - touchEndX;
+        if (Math.abs(diff) > 50) {
+            diff > 0 ? nextBtn.click() : prevBtn.click();
+        }
+    });

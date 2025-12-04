@@ -1,3 +1,11 @@
+:root {
+    --color-main: #e4d5b7;
+    --body-bg: #0f0f0f;
+    --nav-color: rgb(102, 85, 85);
+    --text-color: #cccccc;
+    --color-m: linear-gradient(rgba(197, 199, 185, 0.799), rgba(215, 215, 180, 0.936));
+}
+
 *{
     padding: 0;
     margin: 0;
@@ -6,16 +14,20 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
-    font-family: 'Georgia', serif;
-    background-color: #0f0f0f;
+    font-family: 'Cabinet Grotesk', sans-serif;
+    background-color: var(--body-bg);
 }
 
         /* Logo */
         .logo {
             font-size: 1rem;
             font-weight: 700;
-            color: rgb(102, 85, 85);
+            color: var(--nav-color);
             text-decoration: none;
             letter-spacing: 1px;
             transition: all 0.3s ease;
@@ -92,7 +104,7 @@ body {
             gap: 2rem;
         }
         .menu a {
-            color: rgb(102, 85, 85);
+            color: var(--nav-color);
             text-decoration: none;
             font-size: 1.1rem;
             padding: 0.5rem 0;
@@ -102,7 +114,7 @@ body {
 
         .menu a:hover
         /* .menu a.active  */
-            {color: #ffffff;
+            {color: var(--color-main);
                 
         }
 
@@ -253,8 +265,8 @@ body {
                 content: '';
             }
 
-        /* Content Container */
-        .contact-contain {
+        /* Hero Container */
+        .hero-contain {
             max-width: 700px;
             animation: fadeIn 1.5s ease-out;
             z-index: 1;
@@ -262,12 +274,12 @@ body {
         }
 
         .hero2 h2 {
-            font-family: "Joti One", serif;
+            /* font-family: 'Cabinet Grotesk', sans-serif; */
             font-size: 3.5rem;
             font-weight: 900;
-            margin-top: 10rem;
+            /* margin-top: 10rem; */
             margin-bottom: 1rem;
-            background: #ddd;
+            background: var(--color-main);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -275,9 +287,9 @@ body {
         }
 
         .hero2 p {
-            font-family: 'Cabinet Grotesk', sans-serif;
+            /* font-family: 'Cabinet Grotesk', sans-serif; */
             font-size: 1.3rem;
-            color: #ddd;
+            color: var(--text-color);
             margin-bottom: 2.5rem;
             line-height: 1.7; 
             opacity: 0.9;
@@ -287,8 +299,9 @@ body {
         .social-links {
             display: flex;
             justify-content: center;
-            gap: 18px;
-            margin-bottom: 2rem;
+            gap: 2px;
+            /* margin-top: 25rem; */
+            
         }
 
         .social-links a {
@@ -333,40 +346,39 @@ body {
             letter-spacing: 1px;
         }
 
-        /* ABOUT OUR STUDIO - Fully Responsive */
+/* ========== ABOUT OUR STUDIO =========== */
     .about-studio {
-        font-family: 'Cabinet Grotesk', sans-serif;
         color: #333;
-        background: #fff;
+        background: var(--body-bg);
         overflow: hidden;
   
 }
 /* HERO - FILMING THE RARE THINGS THAT LAST */
-    .hero-filming {
+    .about-filming {
         position: relative;
         width: 100%;
-        height: 100vh;
+        height: 98vh;
         min-height: 620px;
         overflow: hidden;
   
 }
 
-    .hero-image {
+    .about-image {
         width: 100%;
         height: 100%;
         object-fit: cover;
-        object-position: center 30%;   /* Keeps focus on the couple's legs/feet */
+        object-position: center 40%;   /* Keeps focus on the couple's legs/feet */
         display: block;
         transition: transform 8s ease-out;
 }
 
 /* Subtle parallax zoom on scroll (optional but gorgeous) */
-    .hero-filming:hover .hero-image {
+    .about-filming:hover .about-image {
         transform: scale(1.06);
 }
 
 /* Dark overlay for mood + text readability */
-    .hero-overlay {
+    .about-overlay {
         position: absolute;
         top: 0; left: 0; right: 0; bottom: 0;
         background: rgba(0, 0, 0, 0.25);
@@ -378,29 +390,19 @@ body {
 }
 
 /* Elegant serif text - matches your design perfectly */
-    .hero-title {
-        font-family: 'Playfair Display', Georgia, serif;   /* Best match */
+    .abou-title {
         font-size: clamp(3.5rem, 6vw, 6rem);
         font-weight: 300;
         line-height: 0.95;
-        letter-spacing: 0.04em;
-        color: #ffffff;
+        letter-spacing: 0.0.4em;
+        color: var(--color-main);
         text-align: right;
-        text-shadow: 0 4px 20px rgba(0,0,0,0.4);
-        margin-bottom: 5rem;
+        text-shadow: 0 4px 20px rgb(0, 0, 0);
 }
-/* Hero Image - Full width, responsive, perfect crop */
-    /* .about-hero img {
-        width: 100%;
-        height: 65vh;
-        object-fit: cover;
-        object-position: center 20%;
-        display: block;
-} */
 
 /* Content Area */
     .about-content {
-        max-width: 1240px;
+        max-width: 1200px;
         margin: 0 auto;
         padding: 5rem 2rem 6rem;
         text-align: center;
@@ -411,7 +413,7 @@ body {
         font-weight: 400;
         letter-spacing: 2px;
         margin-bottom: 4rem;
-        color: #1a1a1a;
+        color: var(--color-main);
 }
 
 /* Two Columns / Boxes */
@@ -424,20 +426,19 @@ body {
 
     .about-box {
         flex: 1;
-        min-width: 300px;
+        min-width: 500px;
         max-width: 520px;
-        background: #e8e6e1;
+        background: #ddd;
         padding: 2.8rem 2.5rem;
-        border-radius: 8px;
+        border-radius: 20px 80px 20px 80px;
         box-shadow: 0 10px 30px rgba(0,0,0,0.08);
         font-size: 1.1rem;
         line-height: 1.8;
         text-align: left;
-        /* margin-bottom: 4px; */
 }
 
-        
-    /* ====== CONTACT SECTION STYLES =======  */
+
+/* ====== CONTACT SECTION STYLES =======  */
     .contact-container {
       max-width: 1200px;
       margin: 0 auto;
@@ -445,6 +446,7 @@ body {
       grid-template-columns: 1fr 1fr;
       gap: 80px;
       align-items: start;
+      margin-bottom: 12rem;
     }
 
     .contact-title {
@@ -454,16 +456,15 @@ body {
     }
 
     .contact-title h1 {
-      font-family: 'Cabinet Grotesk', sans-serif;
       font-size: 4.5rem;
-      color: #e4d5b7;
+      color: var(--color-main);
       margin-top: 12px;
+      font-weight: 800;
     }
 
     .contact-title p {
-      font-family: 'Cabinet Grotesk', sans-serif;
       font-size: 1.2rem;
-      color: #bbbbbb;
+      color: var(--text-color);
       font-weight: 300px;
     }
 
@@ -482,8 +483,8 @@ body {
     .form-group label {
       font-family: 'Cabinet Grotesk', sans-serif;
       display: block;
-      margin-bottom: 8px;
-      color: #cccccc;
+      margin-bottom: 10px;
+      color: var(--text-color);
       font-size: 0.95rem;
     }
 
@@ -494,7 +495,7 @@ body {
       background-color: #111111;
       border: 1px solid #333333;
       border-radius: 8px;
-      color: #ffffff;
+      color: var(--text-color);
       font-size: 1rem;
       transition: border 0.3s ease;
     }
@@ -528,7 +529,7 @@ body {
     }
 
     .submit-btn:hover {
-      background-color: #e4d5b7;
+      background-color: var(--color-main);
       transform: translateY(-2px);
     }
 
@@ -551,7 +552,7 @@ body {
     .social-card h3 {
       font-family: 'Cabinet Grotesk', sans-serif;
       font-size: 1.8rem;
-      color: #e4d5b7;
+      color: var(--color-main);
       /* margin-bottom: 24px; */
     }
 
@@ -575,25 +576,25 @@ body {
 
     .info-item p {
       font-family: 'Cabinet Grotesk', sans-serif;
-      color: #cccccc;
+      color: var(--text-color);
       text-decoration: none;
       transition: color 0.3s;
     }
 
     .info-item p:hover {
-      color: #e4d5b7;
+      color: var(--color-main);
     }
 
     .social-links {
       /* display: grid; */
       grid-template-columns: 1fr 1fr;
-      gap: 160px;
+      gap: 40px;
     }
 
     .social-btn {
       font-family: 'Cabinet Grotesk', sans-serif;
       background-color: #111111;
-      color: #cccccc;
+      color: var(--text-color);
       padding: 14px 20px;
       border-radius: 8px;
       text-decoration: none;
@@ -608,8 +609,8 @@ body {
 
     .social-btn:hover {
       background-color: #222222;
-      color: #e4d5b7;
-      border-color: #e4d5b7;
+      color: var(--color-main);
+      border-color: var(--color-main);
     }
 
     .social-btn svg {
@@ -618,32 +619,25 @@ body {
       fill: currentColor;
     }
 
+
     /* ========== SERVICES SECTION STYLES ========== */
         .services {
-            font-family: 'Cabinet Grotesk', sans-serif;
-            color: #333;
+            color: var(--text-color);
             line-height: 1.7;
         }
 
-        .service-card {
-            /* margin: 6rem 0; */
-            overflow: hidden;
-            border-radius: 12px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-        }
-
-          /* Alternate layout: text left → image right | image left → text right */
+         /* Alternate layout: text left → image right | image left → text right */
           .planning {
             display: flex;
             align-items: center;
-            background: #f8f5f2;
+            background: var(--body-bg);
             flex-direction: row;
           }
 
           .vision {
             display: flex; 
             align-items: center;
-            background: #f0f0f0;
+            background: var(--body-bg);
             flex-direction: row-reverse;
           }
 
@@ -654,7 +648,7 @@ body {
 
           .service-image img {
             width: 100%;
-            height: 30%;
+            height: 100vh;
             object-fit: cover;
             display: block;
           }
@@ -663,13 +657,13 @@ body {
             font-size: 4rem;
             font-weight: 300;
             margin-bottom: 2rem;
-            color: #1a1a1a;
+            color: var(--color-main);
           }
 
           .service-content h3 {
             font-size: 1.6rem;
             margin-bottom: 1rem;
-            color: #1a1a1a;
+            color: var(--color-main);
           }
 
           .columns {
@@ -682,29 +676,185 @@ body {
             flex: 1;
           }
 
-          /* Button */
-          .btn {          
-            display: inline-block;
-            margin-top: 2rem;
-            padding: 0.9rem 2.2rem;
-            background: #c8c6c1;
-            color: #000;
-            font-weight: bold;
-            text-decoration: none;
-            border-radius: 4px;
-            transition: 0.3s;
-          } 
 
-          .btn:hover {
-            background: #b0ada8;
-          }
+
+    /* ========== COLLECTIONS ========== */
+        .item {
+            position: relative;
+            min-width: 100%;
+            height: 70vh;
+            background-size: cover;
+            background-position: center;
+            scroll-snap-align: start;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .container {
+            /* background: var(--color-m); */
+            max-width: 1800px;
+            margin: 10px 60px;
+            text-align: center;
+            /* font-family: 'Cabinet Grotesk', sans-serif;   */
+        }
+
+        h1 {
+            font-size: 4.5rem;
+            margin: 12px 0px 30px;
+            background: var(--color-main);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 800;
+        }
+
+        /* Gallery Grid */
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 25px;
+            justify-content: center;
+            padding: 20px 0;
+        }
+
+        .gallery-item {
+            flex: 1 1 320px;
+            max-width: 400px;
+            height: 280px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            cursor: zoom-in;
+            transition: all 0.4s ease;
+            position: relative;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-12px) scale(1.03);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+        }
+
+        .gallery-item::after {
+            content: 'Click to open';
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0,0,0,0.6);
+            color: var(--text-color);
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            opacity: 0;
+            transition: opacity 0.4s;
+            pointer-events: none;
+        }
+
+        .gallery-item:hover::after { opacity: 1; }
+
+        /* Lightbox */
+        .lightbox {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 0; top: 0;
+            width: 100%; height: 100%;
+            background: rgba(0,0,0,0.95);
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+        }
+
+        .lightbox.active { display: flex; }
+
+        .lightbox-img {
+            max-width: 90%;
+            max-height: 85vh;
+            object-fit: contain;
+            border-radius: 16px;
+            box-shadow: 0 30px 80px rgba(0,0,0,0.8);
+            transition: transform 0.4s ease;
+            cursor: grab;
+        }
+
+        .lightbox-img:active { cursor: grabbing; }
+
+        /* Navigation Arrows */
+        .nav-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255,255,255,0.2);
+            color: var(--color-main);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            font-size: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            user-select: none;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s;
+            z-index: 10000;
+        }
+
+        .nav-arrow:hover {
+            background: rgba(255,255,255,0.4);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .prev { left: 30px; }
+        .next { right: 30px; }
+
+        .close {
+            position: absolute;
+            top: 25px;
+            right: 35px;
+            color: white;
+            font-size: 50px;
+            font-weight: bold;
+            cursor: pointer;
+            z-index: 10001;
+        }
+
+        .close:hover { color: var(--color-main); transform: rotate(90deg); transition: 0.4s; }
+
+        /* Thumbnail Dots */
+        .dots {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            background: var(--color-main);
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .dot.active, .dot:hover {
+            background: var(--text-color);
+            transform: scale(1.3);
+        }
+  
+
 
     /* ======= FOOTER SECTION STYLES ======= */
         .wedding-footer {
-            background-color: #0f0f0f;
+            background-color: var(--body-bg);
             color: #e5e5e5;
             padding: 60px 20px 20px;
-            /* margin-top: 50px; */
+            margin-top: 50px;
             }
 
         .footer-container {
@@ -718,8 +868,8 @@ body {
 
     /* Brand & Description */
         .footer-head h3 {
-            font-size: 28px;
-            color: #e4d5b7;
+            font-size: 20px;
+            color: var(--color-main);
             margin-bottom: 15px;
             font-family: 'Cabinet Grotesk', sans-serif;
             letter-spacing: 1px;
@@ -727,7 +877,7 @@ body {
 
         .footer-head p {
             font-size: 15px;
-            color: #bbbbbb;
+            color: #ddd;
             max-width: 400px;
             line-height: 1.8;
             font-family: 'Cabinet Grotesk', sans-serif;
@@ -736,7 +886,7 @@ body {
     /* Services Column */
         .footer-col h3 {
             font-size: 20px;
-            color: #e4d5b7;
+            color: var(--color-main);
             margin-bottom: 20px;
             position: relative;
             padding-bottom: 10px;
@@ -750,7 +900,7 @@ body {
             bottom: 0;
             width: 40px;
             height: 2px;
-            background-color: #d4a373;
+            background-color: var(--color-main);
     }
 
         .footer-col ul {
@@ -762,7 +912,7 @@ body {
     }
 
         .footer-col ul li a {
-            color: #cccccc;
+            color: var(--text-color);
             text-decoration: none;
             font-size: 15px;
             transition: all 0.3s ease;
@@ -771,7 +921,7 @@ body {
     }
 
         .footer-col ul li a:hover {
-            color: #d4a373;
+            color: var(--color-main);
             padding-left: 8px;
     }
 
@@ -789,13 +939,13 @@ body {
 
     /* Footer Bottom */
         .footer-bottom {
-            grid-column: 1 / -1;
+            grid-column: 1 / -1; 
             text-align: center;
             padding-top: 40px;
             margin-top: 30px;
             border-top: 1px solid #333;
             font-size: 14px;
-            color: #888;
+            color: var(--text-color);
             font-family: 'Cabinet Grotesk', sans-serif;
     }
 
@@ -877,17 +1027,14 @@ body {
                         margin-top: 40rem;
             }
 
-            /* About  */
-            /* .about-hero img {
-            height: 55vh;
-            } */
+            .abou-title {
+                font-size: 3.2rem;
+            }
+
             .about-content {
                 padding: 4rem 1.5rem;
             }
-            .about-title {
-                font-size: 3.2rem;
-                margin-bottom: 3rem;
-            }
+            
 
                 /* Contact  */
             .contact-container {
@@ -898,29 +1045,27 @@ body {
 
             .contact-title h1 {
                 font-size: 3.5rem;
-      }
+            }
 
                 /* Service  */
-            .planning, .vision {
-              flex-direction: column !important;
-            }
-            .service-content {
-              padding: 4rem 3rem;
-            }
-            .service-content h2 {
-              font-size: 3.2rem;
-            }
+            .planning, .vision { flex-direction: column !important;}
+            .service-content { padding: 4rem 3rem; }
+            .service-content h2 { font-size: 3.2rem; }
             .columns {
               flex-direction: column;
               gap: 2.5rem;
             }
-            .service-image {
-              /* margin-left: 7rem; */
-              width: 100%;
-    
-            }
+            .service-image { width: 100%; }
 
-      /* RESPONSIVE FOOTER */
+                /* COLLECTIONS */
+             h1 { font-size: 3.5rem; }
+            .gallery-item { height: 220px; }
+            .nav-arrow { width: 50px; height: 50px; font-size: 28px; }
+            .prev { left: 15px; }
+            .next { right: 15px; }
+            .close { font-size: 40px; top: 15px; right: 20px; }
+
+         /* RESPONSIVE FOOTER */
             .footer-container {
                             grid-template-columns: 1fr;
                             gap: 40px;
@@ -951,7 +1096,7 @@ body {
                 height: 50vh;
                 object-position: center 25%;
             } */
-            .about-title {
+            .abou-title {
                 font-size: 2.8rem;
                     }
             .about-box {
