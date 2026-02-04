@@ -160,7 +160,7 @@ body {
         } 
 
 
-        /* HERO SECTION - Perfect Center Alignment */
+      /* HERO SECTION - Perfect Center Alignment */
         .hero {
             min-height: 100vh;
             /* background: #fefbea; */
@@ -273,24 +273,13 @@ body {
             position: absolute;
         }
 
-        .hero2 h2 {
-            /* font-family: 'Cabinet Grotesk', sans-serif; */
-            font-size: 3.5rem;
-            font-weight: 900;
-            /* margin-top: 10rem; */
-            margin-bottom: 1rem;
-            background: var(--color-main);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            letter-spacing: 2px;
-        }
 
         .hero2 p {
             /* font-family: 'Cabinet Grotesk', sans-serif; */
             font-size: 1.3rem;
             color: var(--text-color);
             margin-bottom: 2.5rem;
+            margin-top: 70rem;
             line-height: 1.7; 
             opacity: 0.9;
         }
@@ -300,7 +289,7 @@ body {
             display: flex;
             justify-content: center;
             gap: 2px;
-            /* margin-top: 25rem; */
+            margin-bottom: 28rem;
             
         }
 
@@ -430,7 +419,7 @@ body {
         max-width: 520px;
         background: #ddd;
         padding: 2.8rem 2.5rem;
-        border-radius: 20px 80px 20px 80px;
+        border-radius: 20px;
         box-shadow: 0 10px 30px rgba(0,0,0,0.08);
         font-size: 1.1rem;
         line-height: 1.8;
@@ -694,7 +683,7 @@ body {
         .container {
             /* background: var(--color-m); */
             max-width: 1800px;
-            margin: 10px 60px;
+            margin: 10px;
             text-align: center;
             /* font-family: 'Cabinet Grotesk', sans-serif;   */
         }
@@ -962,167 +951,303 @@ body {
     }
 
         
-        /* Mobile Styles */
-        @media (max-width: 768px) {
-            .hamburger {
-                    display: flex;
-                    position: relative;
-            }
+      /* ==========================================================================
+   MOBILE-FIRST MEDIA QUERIES
+   Base styles = mobile (< 481px)
+   Then progressively enhance for larger screens
+   ========================================================================== */
 
-            .logo {
-                font-size: 2rem;
-                margin-left:1rem;
-                font-size: 1rem;
-                font-weight: 700;
-            }
+/* Very small phones — extra tweaks if needed (optional) */
+@media (max-width: 480px) {
+    .logo {
+        font-size: 1.4rem;          /* smaller than 1rem was too tiny */
+        margin-left: 0.8rem;
+    }
 
-            .menu {
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                height: 100vh;
-                background-color: black;
-                max-height: 0;
-                overflow: hidden;
-                transition: max-height 0.4s ease;
-                z-index: 1000;
-                /* margin-right: 3rem; */
-            }
+    .abou-title {                   /* typo fix: abou-title → about-title ? */
+        font-size: 2.4rem;
+    }
 
-            .menu ul {
-                    flex-direction: column;
-                    padding: 1rem 5%;
-                    gap: 1.5rem;
-                    justify-content: center;
-                    margin-left: 40%;
-                    }
+    .about-box {
+        padding: 1.5rem 1rem;
+    }
 
-            .menu a {
-                display: block;
-                font-size: 1.3rem;
-                padding: 0.8rem 0;
-            } 
-            
-            /* When checkbox is checked → open menu */
-            #menu-toggle:checked ~ .menu {
-                max-height: 950px; /* enough for all items */
-            }
+    .service-content {
+        padding: 2.5rem 1.2rem;
+    }
 
-            /* Hamburger to X animation */
-            #menu-toggle:checked ~ .hamburger span:nth-child(1) {
-                transform: rotate(45deg) translate(8px, 8px);
-            }
-            #menu-toggle:checked ~ .hamburger span:nth-child(2) {
-                opacity: 0;
-            }
-            #menu-toggle:checked ~ .hamburger span:nth-child(3) {
-                transform: rotate(-45deg) translate(7px, -7px);
-            }
+    .service-content h2 {
+        font-size: 2.4rem;
+    }
 
-            .get-in-touch-butto{
-                        margin-top: 40rem;
-            }
-            .get-in-touch-button{
-                        margin-top: 40rem;
-            }
+    .wedding-footer {
+        padding: 40px 12px 16px;
+    }
 
-            .abou-title {
-                font-size: 3.2rem;
-            }
+    .footer-head h3 {
+        font-size: 1.5rem;
+    }
 
-            .about-content {
-                padding: 4rem 1.5rem;
-            }
-            
+    .footer-bottom {
+        font-size: 0.8rem;
+    }
+}
 
-                /* Contact  */
-            .contact-container {
-                grid-template-columns: 1fr;
-                gap: 50px;
-                padding: 0px 20px;
-            }
+/* Main mobile + small tablets (most phones + portrait small tablets) */
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex;
+        position: relative;
+    }
 
-            .contact-title h1 {
-                font-size: 3.5rem;
-            }
+    .logo {
+        font-size: 1.8rem;          /* better balance than jumping to 1rem */
+        margin-left: 1rem;
+        font-weight: 700;
+    }
 
-                /* Service  */
-            .planning, .vision { flex-direction: column !important;}
-            .service-content { padding: 4rem 3rem; }
-            .service-content h2 { font-size: 3.2rem; }
-            .columns {
-              flex-direction: column;
-              gap: 2.5rem;
-            }
-            .service-image { width: 100%; }
+    .menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background-color: black;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s ease;
+        z-index: 1000;
+    }
 
-                /* COLLECTIONS */
-             h1 { font-size: 3.5rem; }
-            .gallery-item { height: 220px; }
-            .nav-arrow { width: 50px; height: 50px; font-size: 28px; }
-            .prev { left: 15px; }
-            .next { right: 15px; }
-            .close { font-size: 40px; top: 15px; right: 20px; }
+    .menu ul {
+        flex-direction: column;
+        /* padding: 50; */
+        gap: 2rem;
+        justify-content: center;
+        margin: 0 auto 0 auto;             /* centered better — removed 40% margin */
+        text-align: center;
+    }
 
-         /* RESPONSIVE FOOTER */
-            .footer-container {
-                            grid-template-columns: 1fr;
-                            gap: 40px;
-                            text-align: center;
-                            }
+    .menu a {
+        display: block;
+        font-size: 1.4rem;
+        padding: 1rem 0;
+    }
 
-            .footer-head p {
-                         max-width: 100%;
-                         margin: 0 auto;
-                        }
+    /* Menu open state */
+    #menu-toggle:checked ~ .menu {
+        max-height: 1000px;         /* safer value — depends on your menu items count */
+    }
 
-            .footer-col h3::after {
-                                left: 50%;
-                                transform: translateX(-50%);
-                            }
+    /* Hamburger → X transformation (looks better with slight tweak) */
+    #menu-toggle:checked ~ .hamburger span:nth-child(1) {
+        transform: rotate(45deg) translate(7px, 7px);
+    }
+    #menu-toggle:checked ~ .hamburger span:nth-child(2) {
+        opacity: 0;
+    }
+    #menu-toggle:checked ~ .hamburger span:nth-child(3) {
+        transform: rotate(-45deg) translate(6px, -6px);
+    }
 
-            .footer-col ul li a:hover {
-                            padding-left: 0;
-                        }
+    /* Fix typo & duplication */
+    .about-title {                  /* assuming typo fix */
+        font-size: 3rem;
+    }
 
-            .footer-col ul li a:hover::before {
-                            display: none;
-                        }
-        }
+    .about-content {
+        padding: 3rem 1.5rem;
+    }
 
-        @media (max-width: 480px) {
-            /* .about-hero img {
-                height: 50vh;
-                object-position: center 25%;
-            } */
-            .abou-title {
-                font-size: 2.8rem;
-                    }
-            .about-box {
-                padding: 2rem 1.}
+    .contact-container {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+        padding: 0 1.25rem;
+    }
 
-            .service-content {
-                padding: 3rem 2rem;
-            }
-            .service-content h2 {
-              font-size: 2.8rem;
-            }
-            .service-image {
-              /* margin-left: 7rem; */
-              width: 100%;
-          }
+    .contact-title h1 {
+        font-size: 2.8rem;
+    }
 
-            .wedding-footer {
-                        padding: 50px 15px 20px;
-                        }
+    /* Services */
+    .planning,
+    .vision {
+        flex-direction: column !important;
+    }
 
-            .footer-head h3 {
-                        font-size: 24px;
-                        }
+    .service-content {
+        padding: 3.5rem 2rem;
+    }
 
-            .footer-bottom {
-                        font-size: 13px;
-                        line-height: 1.6;
-                        }
-        }
+    .service-content h2 {
+        font-size: 2.8rem;
+    }
+
+    .columns {
+        flex-direction: column;
+        gap: 2.5rem;
+    }
+
+    .service-image {
+        width: 100%;
+    }
+
+    /* Gallery / Collections */
+    h1 {
+        font-size: 3rem;
+    }
+
+    .gallery-item {
+        height: 220px;
+    }
+
+    .nav-arrow {
+        width: 48px;
+        height: 48px;
+        font-size: 26px;
+    }
+
+    .prev { left: 12px; }
+    .next { right: 12px; }
+    .close {
+        font-size: 38px;
+        top: 12px;
+        right: 16px;
+    }
+
+    /* Footer */
+    .footer-container {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+        text-align: center;
+    }
+
+    .footer-head p {
+        max-width: 100%;
+        margin: 0 auto;
+    }
+
+    .footer-col h3::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .footer-col ul li a:hover {
+        padding-left: 0;
+    }
+
+    .footer-col ul li a:hover::before {
+        display: none;
+    }
+}
+
+/* Tablets + small laptops (portrait & landscape tablets, small 13–14" laptops) */
+@media (max-width: 1024px) and (min-width: 769px) {
+    .logo {
+        font-size: 2.2rem;
+    }
+
+    .menu ul {
+        flex-direction: row;        /* ← usually back to horizontal here */
+        justify-content: center;
+        gap: 2.5rem;
+        padding: 1rem 0;
+        margin-left: 0;
+    }
+
+    .menu a {
+        font-size: 1.1rem;
+        padding: 0.6rem 1rem;
+    }
+
+    /* Hamburger usually hidden here */
+    .hamburger {
+        display: none;
+    }
+
+    .contact-container {
+        grid-template-columns: 1fr 1fr;     /* two columns possible */
+        gap: 4rem;
+        padding: 0 3rem;
+    }
+
+    .service-content {
+        padding: 5rem 4rem;
+    }
+
+    .service-content h2 {
+        font-size: 3.5rem;
+    }
+
+    .columns {
+        flex-direction: row;
+        gap: 3rem;
+    }
+
+    .service-image {
+        width: 45–50%;
+    }
+
+    .gallery-item {
+        height: 280px;
+    }
+}
+
+/* Medium/large laptops & smaller desktops */
+@media (min-width: 1025px) and (max-width: 1279px) {
+    .about-title {
+        font-size: 4.2rem;
+    }
+
+    .contact-title h1 {
+        font-size: 4.5rem;
+    }
+
+    .service-content h2 {
+        font-size: 4rem;
+    }
+
+    .gallery-item {
+        height: 340px;
+    }
+}
+
+/* Large / wide desktops — optional but useful for max-width content */
+@media (min-width: 1280px) {
+    .container,                    /* assuming you have a wrapper */
+    .about-content,
+    .service-content,
+    .contact-container,
+    .footer-container {
+        max-width: 1200px;          /* or 1280px / 1400px — prevents too wide text */
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+
+    .about-title {
+        font-size: 5rem;
+    }
+
+    .contact-title h1 {
+        font-size: 5.5rem;
+    }
+
+    .gallery-item {
+        height: 400px;
+    }
+}
+
+/* Extra-wide screens (optional — 4K, ultrawide) */
+@media (min-width: 1600px) {
+    .container,
+    .about-content,
+    .service-content {
+        max-width: 1480px;          /* or even 1600px */
+    }
+
+    .gallery-item {
+        height: 480px;
+    }
+}
