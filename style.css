@@ -43,7 +43,7 @@ body {
         /* Navigation Styles */
         nav {
             /* background: linear-gradient(rgb(160, 141, 141), #d9d7c9); */
-            background: black;
+            background: white;
             padding: 1%;
             display: flex;
             justify-content: space-between;
@@ -279,7 +279,7 @@ body {
             font-size: 1.3rem;
             color: var(--text-color);
             margin-bottom: 2.5rem;
-            margin-top: 70rem;
+            margin-top: 50rem;
             line-height: 1.7; 
             opacity: 0.9;
         }
@@ -337,7 +337,7 @@ body {
 
 /* ========== ABOUT OUR STUDIO =========== */
     .about-studio {
-        color: #333;
+        color: var(--text-color);
         background: var(--body-bg);
         overflow: hidden;
   
@@ -417,7 +417,7 @@ body {
         flex: 1;
         min-width: 500px;
         max-width: 520px;
-        background: #ddd;
+        /* background: #ddd; */
         padding: 2.8rem 2.5rem;
         border-radius: 20px;
         box-shadow: 0 10px 30px rgba(0,0,0,0.08);
@@ -427,8 +427,8 @@ body {
 }
 
 
-/* ====== CONTACT SECTION STYLES =======  */
-    .contact-container {
+/* ====== CONTACT SECTION STYLES =======  */  
+.contact-container {
       max-width: 1200px;
       margin: 0 auto;
       display: grid;
@@ -436,6 +436,7 @@ body {
       gap: 80px;
       align-items: start;
       margin-bottom: 12rem;
+      border-radius: 2%;
     }
 
     .contact-title {
@@ -463,10 +464,11 @@ body {
       padding: 40px;
       border-radius: 16px;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-    }
+      margin-bottom: 5rem;
+        }
 
     .form-group {
-      margin-bottom: 2px
+      margin-bottom: 2px;
     }
 
     .form-group label {
@@ -636,7 +638,7 @@ body {
           }
 
           .service-image img {
-            width: 100%;
+            /* width: 100%; */
             height: 100vh;
             object-fit: cover;
             display: block;
@@ -958,7 +960,11 @@ body {
    ========================================================================== */
 
 /* Very small phones — extra tweaks if needed (optional) */
-@media (max-width: 480px) {
+@media (max-width: 480px){
+    .hamburger {
+        display: flex;
+        position: relative;
+    }
     .logo {
         font-size: 1.4rem;          /* smaller than 1rem was too tiny */
         margin-left: 0.8rem;
