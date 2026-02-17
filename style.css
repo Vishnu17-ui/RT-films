@@ -65,7 +65,7 @@ body {
             font-family: 'Cabinet Grotesk', sans-serif;
             padding-top: 5rem;
             text-decoration: none;
-            color: #0f0f10;
+            color: var(--nav-color);
             font-weight: 500;
             font-size: 1.1rem;
             position: relative;
@@ -74,65 +74,58 @@ body {
         }
 
         /* Hamburger Icon (hidden on desktop) */
-        .hamburger {
-            display: none;
-            cursor: pointer;
-            flex-direction: column;
-            gap: 5px;
-            margin-right: 1rem;
-        }
-        .hamburger:hover{
-            color: #6c6363;
-            transform: scale(0.05);
-            text-shadow: 0 0 8px rgb(74, 72, 72);
+  /* Desktop menu hidden on mobile, shown via label */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    z-index: 1100;
 }
-        .hamburger span {
-            width: 20px;
-            height: 2px;
-            background: rgb(102, 85, 85);
-            transition: all 0.3s ease;
-        }
 
-        /* Menu Links */
-        .menu {
-            display: flex;
-            
-        }
-        .menu ul {
-            list-style: none;
-            display: flex;
-            gap: 2rem;
-        }
-        .menu a {
-            color: var(--nav-color);
-            text-decoration: none;
-            font-size: 1.1rem;
-            padding: 0.5rem 0;
-            position: relative;
-            transition: color 0.3s;
-        }
+.hamburger span {
+    width: 26px;
+    height: 3px;
+    background: var(--nav-color);
+    transition: all 0.38s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
 
-        .menu a:hover
-        /* .menu a.active  */
-            {color: var(--color-main);
+/* Mobile menu – sidebar style */
+.nav-menu {                     /* ← rename .menu to .nav-menu if needed */
+    position: fixed;
+    inset: 0 0 0 30%;           /* sidebar from right */
+    background: rgba(15,15,15,0.97);
+    backdrop-filter: blur(10px);
+    padding-top: 6rem;
+    transform: translateX(100%);
+    transition: transform 0.45s cubic-bezier(0.77, 0, 0.175, 1);
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2.5rem;
+}
+
+#menu-toggle:checked ~ .nav-menu {
+    transform: translateX(0);
+}
+
+#menu-toggle:checked ~ .hamburger span:nth-child(1) {
+    transform: rotate(45deg) translate(8px, 8px);
+}
+#menu-toggle:checked ~ .hamburger span:nth-child(2) {
+    opacity: 0;
+}
+#menu-toggle:checked ~ .hamburger span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+}
+
+.menu a:hover
+    {color: var(--body-bg)}
                 
-        }
 
-        .menu a.active::after {
-            /* content: ''; */
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background: white;
-        }
-
-        .menu.active,
-        .sidebar.active {
-        z-index: 10 !important;
-}
-        /* Checkbox Hack for Mobile Menu Toggle */
+ /* Checkbox Hack for Mobile Menu Toggle */
         #menu-toggle {
             display: none;
         }
@@ -141,6 +134,7 @@ body {
             color: #6c6363;
             transform: scale(1.05);
             text-shadow: 0 0 8px rgb(74, 72, 72);
+            cursor: pointer;
             
         }
 
@@ -158,6 +152,7 @@ body {
             width: 100%;
             background:#6c6363;
         } 
+
 
 
       /* HERO SECTION - Perfect Center Alignment */
@@ -393,7 +388,7 @@ body {
     .about-content {
         max-width: 1200px;
         margin: 0 auto;
-        padding: 5rem 2rem 6rem;
+        padding: 60px 20px 20px;
         text-align: center;
 }
 
@@ -633,12 +628,12 @@ body {
           }
 
           .service-content {          
-            /* flex: 0; */
+            flex: 1 1;
             padding: 4rem 5rem;
           }
 
           .service-image img {
-            /* width: 100%; */
+            width: 100%;
             height: 100vh;
             object-fit: cover;
             display: block;
@@ -974,8 +969,8 @@ body {
         font-size: 2.4rem;
     }
 
-    .about-box {
-        padding: 1.5rem 1rem;
+    .about-columns {
+        /* padding: 0 8rem; */
     }
 
     .service-content {
@@ -1016,7 +1011,7 @@ body {
         position: absolute;
         top: 100%;
         left: 0;
-        width: 100%;
+        width: 110%;
         height: 100vh;
         background-color: black;
         max-height: 0;
@@ -1027,10 +1022,9 @@ body {
 
     .menu ul {
         flex-direction: column;
-        /* padding: 50; */
         gap: 2rem;
         justify-content: center;
-        margin: 0 auto 0 auto;             /* centered better — removed 40% margin */
+        margin: 40%;            
         text-align: center;
     }
 
@@ -1061,9 +1055,9 @@ body {
         font-size: 3rem;
     }
 
-    .about-content {
+    /* .about-content {
         padding: 3rem 1.5rem;
-    }
+    } */
 
     .contact-container {
         grid-template-columns: 1fr;
@@ -1191,7 +1185,7 @@ body {
     }
 
     .service-image {
-        width: 45–50%;
+        width: 45–50;
     }
 
     .gallery-item {
