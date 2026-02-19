@@ -25,7 +25,7 @@ body {
 
         /* Logo */
         .logo {
-            font-size: 1rem;
+            font-size: 1.9rem;
             font-weight: 700;
             color: var(--nav-color);
             text-decoration: none;
@@ -964,13 +964,27 @@ body {
         font-size: 1.4rem;          /* smaller than 1rem was too tiny */
         margin-left: 0.8rem;
     }
+    .get-in-touch-button{
+        margin-top: 40rem ;
+    }
 
     .abou-title {                   /* typo fix: abou-title → about-title ? */
         font-size: 2.4rem;
     }
 
     .about-columns {
-        /* padding: 0 8rem; */
+        gap: 1.6rem;
+        padding: 0 1.2rem;
+    }
+
+    .about-box {
+        padding: 1rem 5rem;
+        font-size: 1rem;
+        line-height: 1.7;
+    }
+
+    .about-box p {
+        font-size: 0.97rem;
     }
 
     .service-content {
@@ -1055,9 +1069,7 @@ body {
         font-size: 3rem;
     }
 
-    /* .about-content {
-        padding: 3rem 1.5rem;
-    } */
+    
 
     .contact-container {
         grid-template-columns: 1fr;
@@ -1185,7 +1197,7 @@ body {
     }
 
     .service-image {
-        width: 45–50;
+        width: 45% – 50%;
     }
 
     .gallery-item {
