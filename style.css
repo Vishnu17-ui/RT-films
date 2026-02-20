@@ -81,6 +81,7 @@ body {
     gap: 5px;
     cursor: pointer;
     z-index: 1100;
+   
 }
 
 .hamburger span {
@@ -965,7 +966,7 @@ body {
         margin-left: 0.8rem;
     }
     .get-in-touch-button{
-        margin-top: 20rem ;
+        margin-top: 10rem ;
     }
 
     .abou-title {                   /* typo fix: abou-title → about-title ? */
@@ -1025,7 +1026,7 @@ body {
         position: absolute;
         top: 100%;
         left: 0;
-        width: 110%;
+        width: 100%;
         height: 100vh;
         background-color: black;
         max-height: 0;
